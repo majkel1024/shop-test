@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\HelloWorldController;
 
 /*
@@ -21,6 +22,7 @@ Route::get('/', function () {
 
 Route::get('/hello', [HelloWorldController::class, 'show']);
 
+Route::get('/users/list', [UsersController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
