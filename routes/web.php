@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::get('/hello', [HelloWorldController::class, 'show']);
 
-Route::get('/users/list', [UsersController::class, 'index']);
+Route::get('/users/list', [UsersController::class, 'index'])->middleware('auth');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
