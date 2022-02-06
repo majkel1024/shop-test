@@ -30,22 +30,27 @@
         </table>
         {{ $users->links() }}
     </div>
+
+    <template id="usun_usera">
+        <swal-title>
+          Czy na pewno chcesz usunąć tego uzytkownika ?
+        </swal-title>
+        <swal-icon type="warning" color="red"></swal-icon>
+        <swal-button type="confirm">
+          Tak, usuń!
+        </swal-button>
+        <swal-button type="cancel">
+          Nie, nie usuwaj.
+        </swal-button>
+        <swal-param name="allowEscapeKey" value="false" />
+        <swal-param
+          name="customClass"
+          value='{ "popup": "my-popup" }' />
+      </template>
 @endsection
 @section('javascript')
-    $(function() {
-        $('.delete_user').click(function(){
-            $.ajax({
-                method: "DELETE",
-                url: "http://shop.test/users/" + $(this).data("id"),
-                //data: {id: $(this).data("id")}
-              })
-                .done(function( response ) {
-                    window.location.reload();
-                })
-
-                .fail(function( response ) {
-                    alert( "ERROR: " + response  );
-                });
-        });
-    });
+    //const deleteurl = "{{url( 'users' )}}/"
+@endsection
+@section('js-files')
+<script src="{{ asset('js/delete.js') }}" defer></script>
 @endsection

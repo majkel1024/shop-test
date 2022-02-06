@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -80,8 +81,10 @@
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script type="text/javascript">
         @yield('javascript')
     </script>
+    @yield('js-files')
 </body>
 </html>
