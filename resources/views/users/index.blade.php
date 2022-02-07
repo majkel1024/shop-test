@@ -22,7 +22,7 @@
                         <td>{{ $user->surname }}</td>
                         <td>{{ $user->telephone_number }}</td>
                         <td>
-                            <button class="btn btn-danger btn-sm delete_user" data-id="{{ $user->id }}"> Usuń </button>
+                            <button class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}"> Usuń </button>
                         </td>
                     </tr>
                 @endforeach
@@ -31,7 +31,7 @@
         {{ $users->links() }}
     </div>
 
-    <template id="usun_usera">
+    <template id="usun">
         <swal-title>
           Czy na pewno chcesz usunąć tego uzytkownika ?
         </swal-title>

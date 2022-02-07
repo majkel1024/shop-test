@@ -1,13 +1,13 @@
 $(function () {
-    $('.delete_user').click(function () {
+    $('.delete').click(function () {
 
         Swal.fire({
-            template: '#usun_usera'
+            template: '#usun'
         }).then((result) => {
                 if (result.value) {
                     $.ajax({
                             method: "DELETE",
-                            url: $(this).data("id"),
+                            url: deleteurl + $(this).data("id"),
                         })
                         .done(function (data) {
                             window.location.reload();
