@@ -16,7 +16,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
 
                             <div class="col-md-6">
-                                <input id="name" maxlength="100" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" maxlength="100" type="text" class="form-control @error('name') is-invalid @enderror" required name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-end">Opis</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror" name="description" autofocus>{{ old('description') }}</textarea>
+                                <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror" required name="description" autofocus autocomplete="description">{{ old('description') }}</textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -71,7 +71,13 @@
                             <label for="image" class="col-md-4 col-form-label text-md-end">Grafika</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control" name="image">
+                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
+
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\StoreProductRequest;
 
 class ProductController extends Controller
 {
@@ -37,12 +38,12 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  StoreProductRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreProductRequest $request): RedirectResponse
     {
-        $product = new Product($request->all());
+        $product = new Product($request->validated());
         if ($request->hasFile('image')) {
             $product->image_path = $request->file('image')->store('products');
         }
