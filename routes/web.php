@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HelloWorldController;
 
 /*
@@ -17,9 +18,8 @@ use App\Http\Controllers\HelloWorldController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome2');
-});
+
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 
 Route::get('/hello', [HelloWorldController::class, 'show']);
 

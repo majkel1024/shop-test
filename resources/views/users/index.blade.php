@@ -49,7 +49,7 @@
       </template>
 @endsection
 @section('javascript')
-    //const deleteurl = "{{url( 'users' )}}/"
+    const deleteurl = "{{url( 'users' )}}/"
 @endsection
 @section('js-files')
 <script src="{{ asset('js/delete.js') }}" defer></script>
