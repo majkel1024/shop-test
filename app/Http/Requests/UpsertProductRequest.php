@@ -31,4 +31,18 @@ class UpsertProductRequest extends FormRequest
             'image' => 'nullable|image'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Musisz coś wpisać w pole :attribute!'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'nazwa produktu'
+        ];
+    }
 }
