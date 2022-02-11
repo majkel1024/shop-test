@@ -68,6 +68,25 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="category_id" class="col-md-4 col-form-label text-md-end">{{ __('shop.product.add_form.category') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="category_id" type="number" class="form-control @error('category_id') is-invalid @enderror" name="category_id" required >
+                                    @foreach ($categories as $category )
+                                        <option value="{{$category->id}}" @if ($product->isSelectedCategory($category->id))
+                                            selected
+                                        @endif >{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="image" class="col-md-4 col-form-label text-md-end">Grafika</label>
 
                             <div class="col-md-6">
