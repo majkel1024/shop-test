@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use App\Models\ProductCategory;
 
 class WelcomeController extends Controller
 {
@@ -16,7 +17,8 @@ class WelcomeController extends Controller
     public function index(): View
     {
         return view('welcome',[
-            'products' => Product::paginate(10)
+            'products' => Product::paginate(10),
+            'Categories' => ProductCategory::orderBy('name', 'ASC')->get()
         ]);
     }
 }
